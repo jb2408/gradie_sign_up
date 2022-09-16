@@ -50,6 +50,7 @@ html {
 }
 .phone-image-content {
   flex: 1 1 0;
+  position: relative;
   display: flex;
   flex-direction: column;
   place-content: flex-start;
@@ -60,11 +61,13 @@ html {
 }
 .phone-image {
   background-image: url("assets/iPhone.png");
-  background-position: center;
+  background-position: bottom;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   height: 100%;
   width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 .login-form-content {
   flex: 1 1 0;
@@ -175,21 +178,46 @@ input[type="password"] {
 .blue {
   color: var(--light-blue);
   margin-top: 8px;
+  text-align: center;
 }
-/* MEDIA */
 
-@media (min-width: var(--sm)) {
+/* TABLET */
+
+@media (max-width: 959px) {
   .login-card {
-    flex-direction: row;
+    flex-direction: column;
+    width: 80%;
+    height: 80%;
+    border-radius: 0%;
+    border: none;
   }
+  .phone-image-content {
+    padding: 20px 20px 0px 20px;
+    border-radius: 0%;
+  }
+  .phone-image {
+    width: 50%;
+    background-size: contain;
+  }
+  .login-form-content {
+    border-radius: 0%;
+  }
+}
 
+/* MOBILE */
+@media (max-width: 599px) {
   .login-content {
-    background-image: url("../assets/Background.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: none;
+  }
+  .login-card {
+    width: 100%;
     height: 100%;
-
-    padding: 100px;
+  }
+  .phone-image-content {
+    padding: 60px 60px 0px 60px;
+  }
+  .phone-image {
+    width: 100%;
+    background-size: contain;
   }
 }
